@@ -496,25 +496,25 @@
                                                     </div>
                                                 )}
                                                 <div className="flex-1 min-w-0">
-                                                    <div className="flex justify-between items-start">
-                                                        <h3 className="font-bold text-lg text-dark truncate">{item.name}</h3>
-                                                        <div className="flex gap-1">
+                                                    <div className="flex flex-col gap-1.5">
+                                                        <h3 className="font-bold text-lg text-dark break-words leading-tight">{item.name}</h3>
+                                                        <div className="flex flex-wrap gap-1.5">
                                                             <span className="text-[10px] font-bold px-2 py-1 bg-yellow-100 text-yellow-800 rounded-md whitespace-nowrap">
                                                                 {item.tags[0]}
                                                             </span>
                                                             {item.expiryDate && (
                                                                 <span className={`text-[10px] font-bold px-2 py-1 rounded-md whitespace-nowrap flex items-center ${new Date(item.expiryDate) < new Date() ? 'bg-red-100 text-red-800' : 'bg-orange-100 text-orange-800'}`}>
-                                                                    <i data-lucide="clock" className="w-3 h-3 mr-0.5"></i>
+                                                                    <i data-lucide="clock" className="w-3 h-3 mr-0.5 shrink-0"></i>
                                                                     {item.expiryDate}
                                                                 </span>
                                                             )}
                                                         </div>
                                                     </div>
-                                                    <div className="flex items-center text-gray-600 mt-1 text-sm font-medium">
-                                                        <i data-lucide="map-pin" className="w-4 h-4 mr-1 text-yellow-500"></i>
-                                                        <span className="truncate">{item.currentLocation}</span>
+                                                    <div className="flex items-start text-gray-600 mt-2 text-sm font-medium">
+                                                        <i data-lucide="map-pin" className="w-4 h-4 mr-1 text-yellow-500 shrink-0 mt-0.5"></i>
+                                                        <span className="break-words">{item.currentLocation}</span>
                                                     </div>
-                                                    <div className="text-xs text-gray-400 mt-1">
+                                                    <div className="text-xs text-gray-400 mt-1.5">
                                                         最后更新: {formatDate(item.updatedAt)}
                                                     </div>
                                                 </div>
@@ -544,18 +544,18 @@
                                                                 </div>
                                                             )}
                                                             <div className="flex-1 min-w-0">
-                                                                <h3 className="font-bold text-base text-dark truncate">{item.name}</h3>
-                                                                <div className="flex items-center text-gray-500 mt-0.5 text-xs font-medium gap-2">
-                                                                    <div className="flex items-center">
+                                                                <h3 className="font-bold text-base text-dark break-words leading-tight">{item.name}</h3>
+                                                                <div className="flex flex-wrap items-start text-gray-500 mt-1.5 text-xs font-medium gap-2">
+                                                                    <div className="flex items-start">
                                                                         {groupBy === 'tag' ? (
-                                                                            <><i data-lucide="map-pin" className="w-3 h-3 mr-1 text-yellow-500"></i><span className="truncate">{item.currentLocation}</span></>
+                                                                            <><i data-lucide="map-pin" className="w-3 h-3 mr-1 text-yellow-500 shrink-0 mt-0.5"></i><span className="break-words">{item.currentLocation}</span></>
                                                                         ) : (
-                                                                            <><i data-lucide="tag" className="w-3 h-3 mr-1 text-yellow-500"></i><span className="truncate">{item.tags[0]}</span></>
+                                                                            <><i data-lucide="tag" className="w-3 h-3 mr-1 text-yellow-500 shrink-0 mt-0.5"></i><span className="break-words">{item.tags[0]}</span></>
                                                                         )}
                                                                     </div>
                                                                     {item.expiryDate && (
-                                                                        <div className={`flex items-center ${new Date(item.expiryDate) < new Date() ? 'text-red-500' : 'text-orange-500'}`}>
-                                                                            <i data-lucide="clock" className="w-3 h-3 mr-1"></i>
+                                                                        <div className={`flex items-center whitespace-nowrap ${new Date(item.expiryDate) < new Date() ? 'text-red-500' : 'text-orange-500'}`}>
+                                                                            <i data-lucide="clock" className="w-3 h-3 mr-1 shrink-0"></i>
                                                                             {item.expiryDate}
                                                                         </div>
                                                                     )}
@@ -656,17 +656,17 @@
                                         </div>
                                     )}
                                     <div className="p-5">
-                                        <div className="flex justify-between items-start mb-4">
-                                            <h2 className="text-2xl font-black text-dark">{selectedItem.name}</h2>
-                                            <div className="flex gap-2">
+                                        <div className="flex flex-col gap-3 mb-4">
+                                            <h2 className="text-2xl font-black text-dark break-words leading-tight">{selectedItem.name}</h2>
+                                            <div className="flex flex-wrap gap-2">
                                                 {selectedItem.tags.map(tag => (
-                                                    <span key={tag} className="text-xs font-bold px-2 py-1 bg-gray-100 text-gray-600 rounded-md">
+                                                    <span key={tag} className="text-xs font-bold px-2 py-1 bg-gray-100 text-gray-600 rounded-md whitespace-nowrap">
                                                         {tag}
                                                     </span>
                                                 ))}
                                                 {selectedItem.expiryDate && (
-                                                    <span className={`text-xs font-bold px-2 py-1 rounded-md flex items-center ${new Date(selectedItem.expiryDate) < new Date() ? 'bg-red-100 text-red-800' : 'bg-orange-100 text-orange-800'}`}>
-                                                        <i data-lucide="clock" className="w-3 h-3 mr-1"></i>
+                                                    <span className={`text-xs font-bold px-2 py-1 rounded-md whitespace-nowrap flex items-center ${new Date(selectedItem.expiryDate) < new Date() ? 'bg-red-100 text-red-800' : 'bg-orange-100 text-orange-800'}`}>
+                                                        <i data-lucide="clock" className="w-3 h-3 mr-1 shrink-0"></i>
                                                         保质期至: {selectedItem.expiryDate}
                                                     </span>
                                                 )}
